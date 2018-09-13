@@ -51,13 +51,10 @@ public class RetrofitDynamicBaseUrlManager {
         UrlParser urlParser = new DefaultUrlParser();
         urlParser.init(this);
         setUrlParser(urlParser);
-        this.mInterceptor = new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                if (!isRun())
-                    return chain.proceed(chain.request());
-                return chain.proceed(processRequest(chain.request()));
-            }
+        this.mInterceptor = chain -> {
+            if (!isRun())
+                return chain.proceed(chain.request());
+            return chain.proceed(processRequest(chain.request()));
         };
     }
 
