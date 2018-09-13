@@ -17,7 +17,7 @@ allprojects {
 ````
 
 ``` gradle
-implementation 'com.github.hantrungkien:RetrofitDynamicBaseUrl:v1.0.0'
+implementation 'com.github.hantrungkien:RetrofitDynamicBaseUrl:v1.0.1'
 
 ```
 
